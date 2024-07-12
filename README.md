@@ -1,2 +1,3 @@
-# sdnext_podman
-podman repo for sdnext
+# Podman AI containers Pods
+
+Yup...

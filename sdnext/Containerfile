@@ -1,0 +1,35 @@
+FROM nvidia/cuda:12.5.0-runtime-ubuntu22.04
+
+LABEL author="dan@thewisemans.io"
+
+WORKDIR /
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+RUN apt update && \
+    apt -y upgrade && \
+    apt install -y --no-install-recommends \
+    git python3 python3.10-venv && \
+    useradd sdnext && \
+    mkdir sdnext
+
+COPY ./start.sh /sdnext/start.sh
+
+RUN chown -R sdnext:sdnext /sdnext && \
+    chmod +x /sdnext/start.sh
+
+USER sdnext
+
+WORKDIR /sdnext
+
+RUN git clone https://github.com/vladmandic/automatic
+
+RUN cd ./automatic && \
+    python3 -m venv venv && \
+    source venv/bin/activate && \
+    pip3 install wheel && \
+    pip3 install torch torchvision
+
+
+
+ENTRYPOINT ["/bin/bash", "/sdnext/start.sh"]
