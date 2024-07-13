@@ -21,6 +21,10 @@ This container runs a text generation server using the Ollama image (`docker.io/
 ### 3. Kubernetes Pod Configuration (aiweb.kube.yaml)
 This YAML file defines a Podman Pod as a Kubernetes Pod
 
+
+### 4. Kubernetes Pod Configuration (webapps.kube.yaml)
+This YAML file defines a Podman Pod as a Kubernetes Pod for running the web servers and nginx. Needs sudo to run properly or allow port assignment to your user.
+
 #### Key Elements:
 - **Containers**: Two containers (`sdnext` and `ollama`) are specified with appropriate ports and security contexts tailored for GPU usage.
 - **Volume Mounts**: Persistent volume mounts for shared data (models) and configuration settings.
