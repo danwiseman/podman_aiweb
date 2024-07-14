@@ -2,6 +2,8 @@
 
 This repository contains configuration and setup for running an AI web application using Podman, with specific focus on integrating NVIDIA GPUs for accelerated computing through CUDA support. The setup includes Docker images tailored for different AI tasks, including stable diffusion model execution and text generation via Ollama. Below is a brief overview of the components and how they interact within this environment.
 
+This repo is based on https://github.com/godlockin/stable-diffusion-dockers
+
 ## Components Overview
 
 ### 1. SD.Next Container (sdnext)
